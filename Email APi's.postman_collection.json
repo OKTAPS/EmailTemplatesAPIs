@@ -1,0 +1,1779 @@
+{
+	"info": {
+		"_postman_id": "c7168109-3ad1-45cb-9f02-e91e1cbd8a53",
+		"name": "Email APi's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Email Templates API's",
+			"item": [
+				{
+					"name": "Get List of email templates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.selfServiceUnlock",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.selfServiceUnlock",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.selfServiceUnlock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put email.selfServiceUnlock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\"> \\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\"> $org.name - Okta Account Unlock Requested </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> An account unlock request was made for your Okta account. If you did not make this request, please contact your system administrator immediately. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Click this link to unlock the account for your username, $user.profile.login: </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:32px;padding-top:24px;padding-bottom:8px\\\"> <a id=\\\"unlock-account-link\\\" href=\\\"$unlockAccountLink?RelayState=https%3A%2F%2Fgoogle.com\\\" style=\\\"text-decoration:none\\\"><span style=\\\"padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:0 1px 0 #d8d8d8\\\">Unlock Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $unlockAccountTokenExpirationDate. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, send a help request to your administrator: </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Go to your <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">Sign-in Help</span></a> page. Then click the Request help link. </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n    \"subject\": \"Unlock Account\",\n    \"name\": \"Custom\",\n    \"type\": \"email.selfServiceUnlock\",\n    \"defaultLanguage\": \"en\",\n    \"translations\": {\n        \"de\": {\n            \"subject\": \"Konto entsperren - SK-Unlock Account\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\"> \\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\"> $org.name - Entsperren des Okta-Kontos angefordert </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hallo $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Wir haben eine Anforderung zur Kontoentsperrung für Ihr Okta-Konto erhalten. Bitte kontaktieren Sie unverzüglich Ihren System-Administrator, falls diese Anforderung nicht von Ihnen stammt. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Klicken Sie auf diesen Link, um das Konto für Ihren Benutzernamen, $user.profile.login, zu entsperren: </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:32px;padding-top:24px;padding-bottom:8px\\\"> <a id=\\\"unlock-account-link\\\" href=\\\"$unlockAccountLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:0 1px 0 #d8d8d8\\\">Konto entsperren</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> Dieser Link wird in $unlockAccountTokenExpirationDateungültig. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Schicken Sie eine Bitte um Unterstützung an Ihren Administrator, wenn Sie Probleme beim Zugriff auf Ihr Konto haben: </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Gehen Sie zu Ihrer <a href=\\\"$baseURL/help/login\\\">Hilfe zur Anmeldung</a>-Seite. Dann klicken Sie auf den 'Unterstützung anfordern'-Link. </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> Dies ist eine von <a href=\\\"http://www.okta.com\\\" style=\\\"color:#616161\\\">Okta</a> automatisch generierte Nachricht. Rückmeldungen werden nicht gelesen oder beantwortet. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        },\n        \"en\": {\n            \"subject\": \"Unlock Account\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\"> \\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\"> $org.name - Okta Account Unlock Requested </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> An account unlock request was made for your Okta account. If you did not make this request, please contact your system administrator immediately. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Click this link to unlock the account for your username, $user.profile.login: </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:32px;padding-top:24px;padding-bottom:8px\\\"> <a id=\\\"unlock-account-link\\\" href=\\\"$unlockAccountLink?RelayState=https%3A%2F%2Fgoogle.com\\\" style=\\\"text-decoration:none\\\"><span style=\\\"padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:0 1px 0 #d8d8d8\\\">Unlock Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $unlockAccountTokenExpirationDate. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, send a help request to your administrator: </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Go to your <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">Sign-in Help</span></a> page. Then click the Request help link. </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.selfServiceUnlock",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.selfServiceUnlock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.selfServiceUnlockOnUnlockedAccount",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.selfServiceUnlockOnUnlockedAccount",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.selfServiceUnlockOnUnlockedAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put email.selfServiceUnlockOnUnlockedAccount",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\"> \\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\"> $org.name - Okta Account Unlock Requested </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName),  $user.locale </td>\\n              </tr>\\n\\n\\n#if( $user.profile.locale ==  'de')\\n   <tr><td>SKGER -->$user.profile.locale </td></tr>\\n#elseif( $user.profile.locale ==  'en')\\n   <tr><td>SKENG -->$user.profile.locale </td></tr>\\n#else\\n    <tr><td>SKDEF -->$user.profile.locale </td></tr>\\n#end\\n\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> An account unlock request was made for your account. If you did not make this request, please contact your administrator immediately. Someone could be trying to gain access to your account. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you did make this request: your account is not locked and you should be able to log in. If you are having trouble logging in, try resetting your password or contacting your admin. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, send a help request to your administrator: </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Go to your <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">Sign-in Help</span></a> page. Then click the Request help link. </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n    \"subject\": \"!!Unlock Account\",\n    \"name\": \"Custom\",\n    \"type\": \"email.selfServiceUnlockOnUnlockedAccount\",\n    \"defaultLanguage\": \"en\",\n    \"translations\": {\n        \"de\": {\n            \"subject\": \"Konto entsperren -SK- !!Unlock Account\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\"> \\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\"> $org.name - Okta-Konto entsperren angefordert </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hallo $StringTool.escapeHtml($user.profile.firstName)  $user.profile.lastName, $user.locale  </td>\\n              </tr>\\n\\n\\n#if( $user.profile.lastName ==  'de')\\n   <tr><td>SKGER -->$user.profile.locale  </td></tr>\\n#elseif( $user.profile.lastName ==  'user2')\\n   <tr><td>SKENG -->$user.profile.locale  </td></tr>\\n#else\\n    <tr><td>SKDEF -->$user.profile.locale  </td></tr>\\n#end\\n\\n\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Für Ihr Konto wurde ein Kontofreischaltungsantrag gestellt. Sollten Sie diesen Antrag nicht gestellt haben, wenden Sie sich bitte umgehend an Ihren Administrator. Jemand könnte versuchen, Zugriff auf Ihr Konto zu erlangen. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Falls Sie diesen Antrag nicht gestellt haben, ist Ihr Konto nicht gesperrt, und Sie müssten sich eigentlich anmelden können. Sollten Sie dennoch Probleme beim Anmelden haben, setzen Sie bitte Ihr Passwort zurück oder kontaktieren Sie Ihren Administrator. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Falls Sie Schwierigkeiten haben, auf Ihr Konto zuzugreifen, senden Sie bitte eine Hilfeanforderung an Ihren Administrator: </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Rufen Sie die unten angegebene <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">Anmelde-Hilfeseite</span></a> auf. Klicken Sie dann auf den Link „Hilfe anfordern“. </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> Dies ist eine automatisch erzeugte Nachricht von <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Antworten werden weder überwacht noch beantwortet. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        },\n        \"en\": {\n            \"subject\": \"!!Unlock Account\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\"> \\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\"> $org.name - Okta Account Unlock Requested </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName),  $user.locale </td>\\n              </tr>\\n\\n\\n#if( $user.profile.locale ==  'de')\\n   <tr><td>SKGER -->$user.profile.locale </td></tr>\\n#elseif( $user.profile.locale ==  'en')\\n   <tr><td>SKENG -->$user.profile.locale </td></tr>\\n#else\\n    <tr><td>SKDEF -->$user.profile.locale </td></tr>\\n#end\\n\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> An account unlock request was made for your account. If you did not make this request, please contact your administrator immediately. Someone could be trying to gain access to your account. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you did make this request: your account is not locked and you should be able to log in. If you are having trouble logging in, try resetting your password or contacting your admin. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, send a help request to your administrator: </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Go to your <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">Sign-in Help</span></a> page. Then click the Request help link. </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        },\n        \"es\": {\n            \"subject\": \"Desbloquear cuenta -- !!Unlock Account\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\"> \\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\"> $org.name - Se Solicitó Desbloquear la Cuenta Okta </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hola $StringTool.escapeHtml($user.profile.firstName),   $user.locale </td>\\n              </tr>\\n\\n\\n#if( $user.profile.lastName ==  'de')\\n   <tr><td>SKGER -->$user.profile.locale  </td></tr>\\n#elseif( $user.profile.lastName ==  'user2')\\n   <tr><td>SKENG -->$user.profile.locale  </td></tr>\\n#else\\n    <tr><td>SKDEF -->$user.profile.locale  </td></tr>\\n#end\\n\\n\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Se recibió una solicitud para desbloquear su cuenta. Si no envió la solicitud, comuníquese con su administrador de inmediato. Es posible que alguien esté intentando acceder a su cuenta. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Si envió la solicitud, su cuenta no se encuentra bloqueada y debería poder iniciar sesión. Si tiene inconvenientes para iniciar sesión, intente restablecer su contraseña o comuníquese con el administrador. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Si tiene dificultades para acceder a su cuenta, envíe una solicitud de ayuda al administrador. </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Visite la página de ayuda de inicio de sesión que aparece en el siguiente enlace. <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">Ayuda de inicio de sesión</span></a> A continuación, haga clic en el enlace Solicitar ayuda. </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> Este es un mensaje generado automáticamente de <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. No se supervisarán ni responderán las respuestas. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.selfServiceUnlockOnUnlockedAccount",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.selfServiceUnlockOnUnlockedAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.welcome",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.welcome",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.welcome"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put email.welcome",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n    \"subject\": \"Welcome to Okta!\",\n    \"name\": \"Custom\",\n    \"type\": \"email.welcome\",\n    \"defaultLanguage\": \"en\",\n    \"translations\": {\n        \"en\": {\n            \"subject\": \"Welcome to Okta!\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.welcome",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.welcome"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.accountLockout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.accountLockout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.accountLockout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put email.accountLockout",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n    \"subject\": \"Welcome to Okta!\",\n    \"name\": \"Custom\",\n    \"type\": \"email.accountLockout\",\n    \"defaultLanguage\": \"en\",\n    \"translations\": {\n        \"en\": {\n            \"subject\": \"Welcome to Okta!\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.accountLockout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.accountLockout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.forgotPassword",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.forgotPassword",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put email.forgotPassword",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/${resetPasswordLink}/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n ${resetPasswordLink}   </tbody>\\n  </table> \\n</div>\",\n    \"subject\": \"Welcome to Okta!\",\n    \"name\": \"Custom\",\n    \"type\": \"email.forgotPassword\",\n    \"defaultLanguage\": \"en\",\n    \"translations\": {\n        \"en\": {\n            \"subject\": \"Welcome to Okta!\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n   ${resetPasswordLink}   </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.forgotPassword",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryResetFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryResetFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryResetFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put email.emailLinkRecoveryResetFactor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n    \"subject\": \"Welcome to Okta!\",\n    \"name\": \"Custom\",\n    \"type\": \"email.emailLinkRecoveryResetFactor\",\n    \"defaultLanguage\": \"en\",\n    \"translations\": {\n        \"en\": {\n            \"subject\": \"Welcome to Okta!\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryResetFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryResetFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryResetPwdFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryResetPwdFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryResetPwdFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put email.emailLinkRecoveryResetPwdFactor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n    \"subject\": \"Welcome to Okta!\",\n    \"name\": \"Custom\",\n    \"type\": \"email.emailLinkRecoveryResetPwdFactor\",\n    \"defaultLanguage\": \"en\",\n    \"translations\": {\n        \"en\": {\n            \"subject\": \"Welcome to Okta!\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryResetPwdFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryResetPwdFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryAdResetFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryAdResetFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryAdResetFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put email.emailLinkRecoveryAdResetFactor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n    \"subject\": \"Welcome to Okta!\",\n    \"name\": \"Custom\",\n    \"type\": \"email.emailLinkRecoveryAdResetFactor\",\n    \"defaultLanguage\": \"en\",\n    \"translations\": {\n        \"en\": {\n            \"subject\": \"Welcome to Okta!\",\n            \"template\": \"<div style=\\\"background-color:#fafafa;margin:0\\\">\\n\\n\\n\\n\\n  <table style=\\\"font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto\\\" border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\" align=\\\"left\\\">\\n    <tbody>\\n      <tr align=\\\"middle\\\">\\n        <td style=\\\"padding-top:30px;padding-bottom:32px\\\"><img src=\\\"$oktaLogoUrl\\\" height=\\\"37\\\" /></td>\\n      </tr>\\n      <tr bgcolor=\\\"#ffffff\\\">\\n        <td> \\n          <table bgcolor=\\\"#ffffff\\\" style=\\\"width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0\\\" cellpadding=\\\"0\\\">\\n            <tbody>\\n              <tr>\\n                <td style=\\\"color:#5e5e5e;font-size:22px;line-height:22px\\\">$user.profile.app- Welcome to Okta! </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px;vertical-align:bottom\\\"> Hi $StringTool.escapeHtml($user.profile.firstName), </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href=\\\"https://www.okta.com/intro-to-okta/\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">https://www.okta.com/intro-to-okta/</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your system administrator has created an Okta user account for you.<br /> <strong>Click the following link to activate your Okta account:</strong> </td>\\n              </tr>\\n              <tr>\\n                <td align=\\\"center\\\"> \\n                  <table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" valign=\\\"top\\\">\\n                    <tbody>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"height:39px;padding-top:24px;padding-bottom:8px\\\"><a id=\\\"reset-password-link\\\" href=\\\"$activationLink\\\" style=\\\"text-decoration:none\\\"><span style=\\\"display:block;padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#44bc98;border-color:#328c71 #328c71 #2f856b;box-shadow:#d8d8d8 0 1px 0\\\">Activate Okta Account</span></a> </td>\\n                      </tr>\\n                      <tr>\\n                        <td align=\\\"center\\\" style=\\\"color:#999\\\"> This link expires in $org.activationTokenExpirationHours. </td>\\n                      </tr>\\n                    </tbody>\\n                  </table> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> Your username is <strong>$user.profile.login</strong><br /> Your organization's sign-in page is <a href=\\\"$baseURL\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL</span></a> </td>\\n              </tr>\\n              <tr>\\n                <td style=\\\"padding-top:24px\\\"> If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href=\\\"$baseURL/help/login\\\" style=\\\"color:#007dc1;text-decoration:none\\\"><span style=\\\"color:#007dc1;text-decoration:none\\\">$baseURL/help/login</span></a> </td>\\n              </tr>\\n            </tbody>\\n          </table> </td>\\n      </tr>\\n      <tr>\\n        <td style=\\\"font-size:12px;padding:16px 0 30px 50px;color:#999\\\"> This is an automatically generated message from <a href=\\\"http://www.okta.com\\\" style=\\\"color:rgb( 97 , 97 , 97 )\\\">Okta</a>. Replies are not monitored or answered. </td>\\n      </tr>\\n    </tbody>\\n  </table> \\n</div>\",\n            \"preview\": null\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryAdResetFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryAdResetFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryAdResetPwdFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryAdResetPwdFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryAdResetPwdFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryLdapResetPwdFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryLdapResetPwdFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryLdapResetPwdFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.forgotPasswordDenied",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.forgotPasswordDenied",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.forgotPasswordDenied"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.tempPassword",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.tempPassword",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.tempPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.ad.welcome",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.ad.welcome",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.ad.welcome"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.ad.forgotPassword",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.ad.forgotPassword",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.ad.forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.ad.forgotPasswordReset",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.ad.forgotPasswordReset",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.ad.forgotPasswordReset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.selfServiceUnlock",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.selfServiceUnlock",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.selfServiceUnlock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryUnlockFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryUnlockFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryUnlockFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryAdUnlockFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryAdUnlockFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryAdUnlockFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryUnlockPwdFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryUnlockPwdFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryUnlockPwdFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryAdUnlockPwdFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryAdUnlockPwdFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryAdUnlockPwdFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkRecoveryLdapUnlockPwdFactor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkRecoveryLdapUnlockPwdFactor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkRecoveryLdapUnlockPwdFactor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.ad.selfServiceUnlock",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.ad.selfServiceUnlock",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.ad.selfServiceUnlock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.pushVerifyActivation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.pushVerifyActivation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.pushVerifyActivation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.accountLockout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.accountLockout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.accountLockout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkAuthenticationTransaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkAuthenticationTransaction",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkAuthenticationTransaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailActivation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailActivation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailActivation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.signInFromNewDevice",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.signInFromNewDevice",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.signInFromNewDevice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.registrationActivation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.registrationActivation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.registrationActivation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailChangeConfirmation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailChangeConfirmation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailChangeConfirmation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailNewChangeNotification",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailNewChangeNotification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailNewChangeNotification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailNewAlreadyChangedNotification",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailNewAlreadyChangedNotification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailNewAlreadyChangedNotification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.registrationEmailVerification",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.registrationEmailVerification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.registrationEmailVerification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.emailLinkFactorVerification",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.emailLinkFactorVerification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.emailLinkFactorVerification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.selfServiceUnlockOnUnlockedAccount",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.selfServiceUnlockOnUnlockedAccount",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.selfServiceUnlockOnUnlockedAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.endUserScheduledLifecycleStatusChange",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.endUserScheduledLifecycleStatusChange",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.endUserScheduledLifecycleStatusChange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.adminUsersListScheduledLifecycleStatusChange",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.adminUsersListScheduledLifecycleStatusChange",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.adminUsersListScheduledLifecycleStatusChange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.factorEnrollment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.factorEnrollment",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.factorEnrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.factorReset",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.factorReset",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.factorReset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.authenticatorEnrollment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.authenticatorEnrollment",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.authenticatorEnrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.authenticatorReset",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.authenticatorReset",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.authenticatorReset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.automation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.automation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.automation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email.passwordChanged",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/emails/email.passwordChanged",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"emails",
+								"email.passwordChanged"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
